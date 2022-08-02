@@ -6,9 +6,10 @@ const filePath = document.getElementById('logFilePath').value;
 connection.onopen = () => {
     if(filePath){
         connection.send(filePath);
-    }else{
-        connection.send('Hello from the client!');
     }
+    // }else{
+    //     connection.send('Hello from the client!');
+    // }
 }
 
 connection.onmessage = event => {

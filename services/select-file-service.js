@@ -39,12 +39,10 @@ function readDir(currentDir, res, query) {
 }
 
 exports.get = (req, res) => {
-    // let currentDir = dir;
-    // const query = req.query.path ? req.query.path : "";
-    // console.log(query);
-    // if(query){
-    //     currentDir = fs.join(currentDir, query);
-    // }
-    // return readDir(currentDir, res, query);
-    return ""
+    let currentDir = dir;
+    const query = req.query.path || "";
+    if(query){
+        currentDir = path.join(dir, query);
+    }
+    readDir(currentDir, res, query);
 };
