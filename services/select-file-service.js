@@ -24,8 +24,8 @@ function getDirectoryContents(files, currentDir, query) {
 }
 
 function isDirectory(currentDir, file) {
-    const fileInfor = fs.statSync(path.join(currentDir, file));
-    return fileInfor.isDirectory();
+    const fileInfo = fs.statSync(path.join(currentDir, file));
+    return fileInfo.isDirectory();
 }
 
 function readDir(currentDir, res, query) {
