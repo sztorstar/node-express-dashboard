@@ -43,10 +43,10 @@ wss.on("connection", ws => {
     fs.watch(filePath, () => {
       fs.createReadStream(filePath).on('data', chunk => {
         // This just pipes the read stream to the response object (which goes to the client)
-        const logsArr = chunk.toString().split("\n");
+        let logsArr = chunk.toString().split("\n");
         const settings = getSettings();
         if(settings.filter){
-          logsArr.filter(line => !line.includes(settings.filter))
+          logsArr = logsArr.filter(line => !line.includes(settings.filter))
         }
         const logsStr = logsArr.reverse().join("\n");
         ws.send(logsStr);
