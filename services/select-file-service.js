@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const dir = process.cwd();
+let dir;
 
 function getDirectoryContents(files, currentDir, query) {
     const data = [];
@@ -46,3 +46,7 @@ exports.get = (req, res) => {
     }
     readDir(currentDir, res, query);
 };
+
+exports.setcwd = (cwd) => {
+    dir = cwd;
+}
